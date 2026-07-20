@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" x:Name="cityName" FontSize="50" Text="500"/>
+        <TextBlock Grid.Column="1" x:Name="countryName" FontSize="50" Text="500"/>
+        <TextBlock Grid.Column="2" x:Name="tempValue" FontSize="50" Text="500"/>
+        <TextBlock Grid.Column="3" x:Name="humanidyValue" FontSize="50" Text="500"/>
+        <TextBlock Grid.Column="4" x:Name="windValue" FontSize="50" Text="500"/>
     </Grid>
 </Window>
