@@ -9,5 +9,7 @@ namespace Weather_App.Models
 {
     public class SysData
     {
+        public string Country { get; set; }
+
     }
 }

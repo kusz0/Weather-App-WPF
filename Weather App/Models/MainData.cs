@@ -9,5 +9,7 @@ namespace Weather_App.Models
 {
     public class MainData
     {
+        public decimal Temp { get; set; }
+        public int Humidity { get; set; }
     }
 }
