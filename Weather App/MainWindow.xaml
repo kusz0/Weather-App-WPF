@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Weather_App"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="380">
     <Window.DataContext>
         <vm:MainViewModel />
     </Window.DataContext>
@@ -16,18 +16,44 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" x:Name="cityName" FontSize="50" Text="{Binding CityName}"/>
-        <TextBlock Grid.Row="0" Grid.Column="1" x:Name="countryName" FontSize="50" Text="{Binding CountryName}"/>
-        <TextBlock Grid.Row="0" Grid.Column="2" x:Name="tempValue" FontSize="50" Text="{Binding Temperature}"/>
-        <TextBlock Grid.Row="0" Grid.Column="3" x:Name="humanidyValue" FontSize="50" Text="{Binding Humidity}"/>
-        <TextBlock Grid.Row="0" Grid.Column="4" x:Name="windValue" FontSize="50" Text="{Binding WindSpeed}"/>
-        <TextBox Grid.Row="1" Grid.Column="2" x:Name="searchCityTextBox" Text="{Binding SearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Grid.Row="1" Grid.Column="3" x:Name="aplyBtn" Content="Search" Command="{Binding SearchCommand}"/>
+
+        <!--Search-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="4" Grid.Row="0" >
+            <TextBox Grid.Row="0" Grid.ColumnSpan="3" x:Name="searchCityTextBox" Text="{Binding SearchQuery, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Grid.Row="4" Grid.Column="4" x:Name="aplyBtn" Command="{Binding SearchCommand}">
+                <Image Source="pack://application:,,,/Assets/search.png" Stretch="Uniform"/>
+            </Button>
+        </StackPanel>
+        <!--Main temp-->
+        <StackPanel Margin="0 -30 0 10" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
+            <Image x:Name="MainTemperatureImg" Grid.Row="1" Style="{StaticResource MainWeatherImg}" Source="pack://application:,,,/Assets/clear.png"/>
+            <TextBlock  Text="{Binding CityName}"/>
+            <TextBlock  Text="{Binding CountryName}"/>
+            <TextBlock Text="{Binding Temperature}"/>
+        </StackPanel>
+            <!-- Hum Info-->
+        <WrapPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4">
+            <Image Source="/Assets/humidity.png"/>
+            <StackPanel>
+                <TextBlock  Text="{Binding Humidity}"/>
+                <Label Content="humidity"/>
+            </StackPanel>
+        </WrapPanel>
+        
+        <!--Wind Info-->
+        <WrapPanel Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4">
+            <Image Source="/Assets/wind.png"/>
+            <StackPanel>
+                <TextBlock Text="{Binding WindSpeed}"/>
+                <Label Content="wind speed"/>
+            </StackPanel>
+        </WrapPanel>
     </Grid>
 </Window>

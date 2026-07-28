@@ -12,6 +12,13 @@ namespace Weather_App.ViewModels
 {
     internal class MainViewModel : INotifyPropertyChanged
     {
+        enum WeatherCondition
+        {
+            clear,clouds,drizzle,humidity,mist,rain,search,snow,wind
+        }
+
+
+        // api i info
         private static readonly HttpClient client = new HttpClient();
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -58,20 +65,23 @@ namespace Weather_App.ViewModels
         public string SearchQuery
         {
             get => _searchQuery;
-            set { _searchQuery = value; OnPropertyChanged(); }
+            set { _searchQuery = value; OnPropertyChanged();  }
         }
 
         public ICommand SearchCommand { get; }
-
         public MainViewModel()
         {
             SearchCommand = new RelayCommand(() =>
             {
                 if (!string.IsNullOrWhiteSpace(SearchQuery))
                 {
-                    GetJsonAsync(SearchQuery);
+                    _ = GetJsonAsync(SearchQuery);
+
+                    SearchQuery = string.Empty;
                 }
+
             });
+                _= GetJsonAsync("Warsaw");
         }
 
         public async Task GetJsonAsync(string city)
@@ -107,6 +117,13 @@ namespace Weather_App.ViewModels
                 MessageBox.Show($"Connection error", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        //ikony
+        private string GetIconPath(WeatherCondition condition)
+        {
+            return $"pack://application:,,,/Assets/{condition.ToString().ToLower()}.png";
+        }
+
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

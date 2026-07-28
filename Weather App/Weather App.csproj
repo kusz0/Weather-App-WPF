@@ -10,7 +10,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\clear.png" />
+    <None Remove="Assets\clouds.png" />
+    <None Remove="Assets\drizzle.png" />
+    <None Remove="Assets\humidity.png" />
+    <None Remove="Assets\mist.png" />
+    <None Remove="Assets\rain.png" />
+    <None Remove="Assets\search.png" />
+    <None Remove="Assets\snow.png" />
+    <None Remove="Assets\wind.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\clouds.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\clear.png" />
+    <Resource Include="Assets\drizzle.png" />
+    <Resource Include="Assets\humidity.png" />
+    <Resource Include="Assets\mist.png" />
+    <Resource Include="Assets\rain.png" />
+    <Resource Include="Assets\search.png" />
+    <Resource Include="Assets\snow.png" />
+    <Resource Include="Assets\wind.png" />
   </ItemGroup>
 
 </Project>
