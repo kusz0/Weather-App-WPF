@@ -10,14 +10,75 @@
         <Style TargetType="Image" x:Key="MainWeatherImg">
             <Setter Property="Width" Value="150"/>
         </Style>
+        <Style TargetType="Image" x:Key="AddedImg">
+            <Setter Property="Width" Value="50"/>
+        </Style>
         <Style TargetType="TextBox">
             <Setter Property="Width" Value="300"/>
             <Setter Property="Height" Value="50"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#EBFFFC"/>
+            <Setter Property="Margin" Value="5 0 10 0"/>
+            <Setter Property="Foreground" Value="#000"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" 
+                            BorderBrush="Gray" 
+                            BorderThickness="1" 
+                            Background="{TemplateBinding Background}" 
+                            CornerRadius="8">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="Button">
             <Setter Property="Width" Value="50"/>
             <Setter Property="Height" Value="50"/>
-            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Background" Value="#EBFFFC"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="ellipse"
+                                     Fill="{TemplateBinding Background}"
+                                     Width="{TemplateBinding Width}"
+                                     Height="{TemplateBinding Height}"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ellipse" Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="MainCity">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#EBFFFC"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="InfoLbl">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Foreground" Value="#EBFFFC"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="MainInfo" BasedOn="{StaticResource MainCity}">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="ExtraInfo" BasedOn="{StaticResource MainInfo}">
+            <Setter Property="FontSize" Value="21"/>
+            <Setter Property="Margin" Value="10 0 0 0"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="#EBFFFC"/>
         </Style>
     </Application.Resources>
 </Application>
