@@ -30,8 +30,19 @@ namespace Weather_App.ViewModels
         private string _humidity = "--%";
         private string _windSpeed = "-- km/h";
         private string _countryName = "---";
-        private string _searchQuery = ""; 
+        private string _searchQuery = "";
+        private string _weatherDetail;
+        private string _weatherIconPath;
 
+        public string WeatherIconPath
+        {
+            get => _weatherIconPath;
+            set { _weatherIconPath = value; OnPropertyChanged(); }
+        }
+        public string WeatherDetail 
+        { get => _weatherDetail;
+            set {_weatherDetail = value; OnPropertyChanged(); } 
+        }
         public string CityName
         {
             get => _cityName;
@@ -103,8 +114,10 @@ namespace Weather_App.ViewModels
                         CountryName = data.Sys?.Country ?? "---";
                         Temperature = $"{Math.Round(data.Main.Temp)}°C";
                         Humidity = $"{data.Main.Humidity}%";
-
                         WindSpeed = $"{data.Wind.WindSpeed} km/h";
+
+                        WeatherDetail = $"{data.Weather[0].Main}";
+                        WeatherIconPath = GetIconPath(_weatherDetail);
                     }
                 }
                 else
@@ -119,11 +132,11 @@ namespace Weather_App.ViewModels
         }
 
         //ikony
-        private string GetIconPath(WeatherCondition condition)
+        private string GetIconPath(string condition)
         {
+
             return $"pack://application:,,,/Assets/{condition.ToString().ToLower()}.png";
         }
-
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

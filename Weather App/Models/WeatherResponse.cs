@@ -13,6 +13,6 @@ namespace Weather_App.Models
         public MainData Main { get; set; }
         public WindData Wind { get; set; }
         public SysData Sys { get; set; }
-
+        public List<WeatherDetail> Weather { get; set; }
     }
 }

@@ -41,7 +41,7 @@
         </StackPanel>
         <!--Main temp-->
         <StackPanel Margin="0 -30 0 10" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
-            <Image x:Name="MainTemperatureImg" Grid.Row="1" Style="{StaticResource MainWeatherImg}" Source="pack://application:,,,/Assets/clear.png"/>
+            <Image x:Name="MainTemperatureImg" Grid.Row="1" Style="{StaticResource MainWeatherImg}" Source="{Binding WeatherIconPath}"/>
             <TextBlock Style="{StaticResource MainCity}" Text="{Binding CityName}"/>
             <TextBlock Style="{StaticResource InfoLbl}" Text="{Binding CountryName}"/>
             <TextBlock Style="{StaticResource MainInfo}" Text="{Binding Temperature}"/>
