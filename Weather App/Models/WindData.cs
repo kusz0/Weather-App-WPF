@@ -9,6 +9,6 @@ namespace Weather_App.Models
 {
     public class WindData
     {
-        public decimal WindSpeed { get; set; }
+        public float WindSpeed { get; set; }
     }
 }

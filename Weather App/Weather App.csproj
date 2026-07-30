@@ -7,6 +7,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,11 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\clouds.png" />
+    <Content Include="favicon.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\" />
+    <Resource Include="Assets\clouds.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +39,10 @@
     <Resource Include="Assets\search.png" />
     <Resource Include="Assets\snow.png" />
     <Resource Include="Assets\wind.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
 
 </Project>
