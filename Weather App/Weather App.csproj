@@ -8,9 +8,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\clear - Copy.png" />
     <None Remove="Assets\clear.png" />
     <None Remove="Assets\clouds.png" />
     <None Remove="Assets\drizzle.png" />
@@ -27,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\clear - Copy.png" />
     <Resource Include="Assets\clouds.png" />
   </ItemGroup>
 
